@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { OpalMenu } from "../types";
 import axios from "axios";
 import fauxMenu from "../project.json";
@@ -6,14 +6,14 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import { Typography } from "@material-ui/core";
+import { CartContext } from "../CartProvider";
 
 const Menu: React.FC = () => {
   const [opalMenu, setOpalMenu] = useState<OpalMenu>();
+  const { addItem } = useContext(CartContext);
 
   const getMenu = async () => {
     //TODO - Fix CORS issues. Currently, the Axios request will always fail
@@ -48,7 +48,7 @@ const Menu: React.FC = () => {
       <Container maxWidth="md">
         <Grid container spacing={3}>
           {opalMenu?.menu.map((menuItem) => (
-            <Grid item xs={12} sm={12} md={12}>
+            <Grid item xs={12}>
               <Card>
                 <CardContent>
                   <Typography variant="h5">{menuItem.item}</Typography>
@@ -66,7 +66,18 @@ const Menu: React.FC = () => {
                       <Typography variant="body2">
                         {option.size} : ${option.price}
                       </Typography>
-                      <Button variant="outlined">Add to Cart</Button>
+                      <Button
+                        variant="outlined"
+                        onClick={() =>
+                          addItem({
+                            item: menuItem.item,
+                            size: option.size,
+                            price: option.price,
+                          })
+                        }
+                      >
+                        Add to Cart
+                      </Button>
                     </div>
                   ))}
                 </CardContent>

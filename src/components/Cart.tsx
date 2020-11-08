@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../CartProvider";
 
 const Cart: React.FC = () => {
-  return <h1>Cart Placeholder</h1>;
+  const { cartItems } = useContext(CartContext);
+  return (
+    <React.Fragment>
+      <h1>Your Cart</h1>
+      {cartItems.map((item) => (
+        <div>
+          {item.item} {item.size} {item.price}
+        </div>
+      ))}
+    </React.Fragment>
+  );
 };
 
 export default Cart;

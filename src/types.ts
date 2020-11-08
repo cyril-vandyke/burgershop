@@ -8,9 +8,15 @@ export interface MenuInfo{
     date: string
 }
 
-export interface MenuItem {
+export interface MenuItem{
     item:string,
     options:ItemOption[]
+}
+
+export interface OrderItem{
+    item:string,
+    size:string,
+    price:number
 }
 
 export interface ItemOption {
