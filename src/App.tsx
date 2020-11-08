@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ThemeProvider } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -6,7 +6,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./components/Routes";
 import Navigation from "./components/Navigation";
 import Box from "@material-ui/core/Box";
-import { MenuItem, OrderItem } from "./types";
 import CartProvider from "./CartProvider";
 
 const darkTheme = createMuiTheme({

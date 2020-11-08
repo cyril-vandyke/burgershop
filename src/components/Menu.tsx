@@ -44,7 +44,7 @@ const Menu: React.FC = () => {
 
   return (
     <React.Fragment>
-      <h1>Cyril's Burgermenue</h1>
+      <Typography variant="h2">Cyril's Burgermenue</Typography>
       <Container maxWidth="md">
         <Grid container spacing={3}>
           {opalMenu?.menu.map((menuItem) => (
@@ -64,7 +64,7 @@ const Menu: React.FC = () => {
                       }}
                     >
                       <Typography variant="body2">
-                        {option.size} : ${option.price}
+                        {option.size} ${option.price}
                       </Typography>
                       <Button
                         variant="outlined"
