@@ -6,6 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { CartContext } from "../CartProvider";
+import CardMedia from "@material-ui/core/CardMedia";
 
 const SingleMenuItem: React.FC<{ item: MenuItem }> = ({ item }) => {
   const { addItem } = useContext(CartContext);
@@ -13,6 +14,10 @@ const SingleMenuItem: React.FC<{ item: MenuItem }> = ({ item }) => {
   return (
     <Grid item xs={12}>
       <Card>
+        <CardMedia
+          style={{ height: "160px" }}
+          image="https://image.freepik.com/free-vector/cute-burger-french-fries-cartoon-icon-illustration-fast-food-character-icon-concept-isolated-premium-flat-cartoon-style_138676-1608.jpg"
+        />
         <CardContent>
           <Typography variant="h5">{item.item}</Typography>
           <Typography variant="body1">Size Options</Typography>
@@ -25,9 +30,10 @@ const SingleMenuItem: React.FC<{ item: MenuItem }> = ({ item }) => {
                 justifyContent: "space-between",
                 paddingBottom: "5px",
               }}
+              key={`option-entry-${item.item}-${option.size}`}
             >
               <Typography variant="body2">
-                {option.size} ${option.price}
+                {option.size}, ${option.price}
               </Typography>
               <Button
                 variant="outlined"
@@ -38,6 +44,7 @@ const SingleMenuItem: React.FC<{ item: MenuItem }> = ({ item }) => {
                     price: option.price,
                   })
                 }
+                key={`add-button-${item.item}-${option.size}`}
               >
                 Add to Cart
               </Button>

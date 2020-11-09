@@ -40,7 +40,7 @@ const Menu: React.FC = () => {
   return (
     <React.Fragment>
       <Typography variant="h2">Cyril's Burgermenue</Typography>
-      <Container maxWidth="md">
+      <Container maxWidth="xs">
         <Grid container spacing={3}>
           {opalMenu?.menu.map((menuItem) => (
             <SingleMenuItem item={menuItem} />

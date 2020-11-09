@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../CartProvider";
+import Paper from "@material-ui/core/Paper";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -30,20 +31,23 @@ const Cart: React.FC = () => {
       ) : (
         <React.Fragment>
           <Typography variant="body1">Order Total: ${orderTotal}</Typography>
-          <List style={{ width: "400px" }}>
-            {cartItems.map((item, index) => (
-              <ListItem button divider>
-                <ListItemText secondary={`${item.size} $${item.price}`}>
-                  {item.item}
-                </ListItemText>
-                <ListItemSecondaryAction>
-                  <IconButton onClick={() => removeItem(index)}>
-                    <DeleteIcon />
-                  </IconButton>
-                </ListItemSecondaryAction>
-              </ListItem>
-            ))}
-          </List>
+          <Paper>
+            <List style={{ width: "400px" }}>
+              {cartItems.map((item, index) => (
+                /*TODO - Make this more visually pleasing */
+                <ListItem button divider key={`cart-item-${index}`}>
+                  <ListItemText secondary={`${item.size} $${item.price}`}>
+                    {item.item}
+                  </ListItemText>
+                  <ListItemSecondaryAction>
+                    <IconButton onClick={() => removeItem(index)}>
+                      <DeleteIcon />
+                    </IconButton>
+                  </ListItemSecondaryAction>
+                </ListItem>
+              ))}
+            </List>
+          </Paper>
         </React.Fragment>
       )}
     </React.Fragment>

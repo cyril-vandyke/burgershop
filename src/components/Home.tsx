@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 
 const Home: React.FC = () => {
+  //TODO - Build this out into something fun.
   return (
     <React.Fragment>
       <Typography variant="h2">Welcome to Cyril's Burgershoppe!</Typography>

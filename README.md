@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Cyril's Burgershoppe
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A timeboxed project to develop a fast-food ordering webpage bootstrapped with Create React App
 
 ## Available Scripts
 

@@ -24,7 +24,7 @@ test("displays information about menu item", () => {
   );
   expect(getByText("Burger")).toBeVisible();
   expect(getByText("Size Options")).toBeVisible();
-  expect(getByText("regular $3")).toBeVisible();
+  expect(getByText("regular, $3")).toBeVisible();
 });
 
 test("Leverages context when user clicks 'Add to Cart' button", async () => {
